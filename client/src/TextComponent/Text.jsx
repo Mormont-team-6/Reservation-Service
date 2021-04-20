@@ -20,9 +20,7 @@ const Text = (props) => {
         <Amenities/>
         <hr className ="LineEM"/>
       </div>
-
     </div>
-
   );
 };
 export default Text;

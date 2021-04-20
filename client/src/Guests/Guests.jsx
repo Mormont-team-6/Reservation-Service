@@ -3,11 +3,8 @@ import Collapsible from 'react-collapsible';
 import './Guests.css';
 const Guests = (props) => {
   const [guests, setGuests] = useState(props.guests);
-
   const [adults, setAdults] = useState(1);
-
   const [children, setchildren] = useState(0);
-
   const [infants, setInfants] = useState(0);
 
   useEffect(() => {
@@ -17,33 +14,24 @@ const Guests = (props) => {
   const openColapible = ()=> {
     let content = document.getElementsByClassName('content-em');
     let content2 = document.getElementsByClassName('box-em');
-
-
     if (content.item(0).style.display === 'block') {
-
       content.item(0).style.display = 'none';
-
       if (content2.item(0).style.height === '60%') {
         content2.item(0).style.height = '45%';
       } else {
         content2.item(0).style.height = '27%';
       }
-
-      document.getElementsByClassName('arrow-em').item(0).classList.remove("up-em");
-
-      document.getElementsByClassName('arrow-em').item(0).classList.add("down-em");
+      document.getElementsByClassName('arrow-em').item(0).classList.remove('up-em');
+      document.getElementsByClassName('arrow-em').item(0).classList.add('down-em');
     } else {
       content.item(0).style.display = 'block';
-      //console.log('height =' , content2.item(0).style.height );
-      if (content2.item(0).style.height === '27%' || content2.item(0).style.height ==='' ) {
+      if (content2.item(0).style.height === '27%' || content2.item(0).style.height === '' ) {
         content2.item(0).style.height = '45%';
       } else {
         content2.item(0).style.height = '60%';
       }
-      //console.log(document.getElementsByClassName('arrow-em').item(0).classList);
-      //console.log(document.getElementsByClassName('arrow').item(0).classList);
-      document.getElementsByClassName('arrow-em').item(0).classList.remove("down-em");
-      document.getElementsByClassName('arrow-em').item(0).classList.add("up-em");
+      document.getElementsByClassName('arrow-em').item(0).classList.remove('down-em');
+      document.getElementsByClassName('arrow-em').item(0).classList.add('up-em');
     }
   };
 
@@ -52,7 +40,6 @@ const Guests = (props) => {
       <button type="button-em" className="main_button-em" onClick = {openColapible}>GUESTS <i className="arrow-em down-em"></i></button>
       <div className="content-em">
         <div className ="content-style-grid-em">
-
           <div className = "adults-text-em">
             <span > Adults</span>
           </div>
@@ -67,8 +54,6 @@ const Guests = (props) => {
               onClick={adults + children < guests ? () => setAdults(adults + 1) : null}
             > + </button>
           </div>
-
-
           <div className = "children-text-em">
             <span >children</span>
           </div>
@@ -83,8 +68,6 @@ const Guests = (props) => {
               onClick={adults + children < guests ? () => setchildren(children + 1) : null}
             > + </button>
           </div>
-
-
           <div className = "infants-text-em">
             <span >Infants</span>
           </div>
@@ -99,16 +82,11 @@ const Guests = (props) => {
               onClick={infants < guests * 3 ? () => setInfants(infants + 1) : null}
             > + </button>
           </div>
-
-
-
         </div>
         <div className = "buttom-text-em">
           {guests} maximum. Infants don’t count toward the number of guests.
         </div>
-
       </div>
-
     </div>
   );
 };

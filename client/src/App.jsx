@@ -12,10 +12,8 @@ import Rating from './Rating/Rating.jsx';
 import Fees from './Fees/Fees.jsx';
 import Text from './TextComponent/Text.jsx';
 
-
 // eslint-disable-next-line func-style
 function App () {
-  // Declare a new state variable, which we'll call "count"
   const [guests, setGuests] = useState(0);
   const [selectedGuests, setSelectedGuests] = useState({});
   const [isBusy, setBusy] = useState({loading: true});
@@ -26,12 +24,12 @@ function App () {
   const [buttonTitle, setButtonTitle] = useState('Check Availability');
   const [reservationDates, setReservationDates] = useState({startDate: '', endDate: ''});
   const [price, setPrice] = useState(0);
+
   /*
     this function received dates from server and changes format and
     saves them into sorted array and object to pass it to calendar
   **/
   const disaBleDays = (dates) => {
-
     //2020-11-14T03:50:11.071Z
     let objDisabledDates = {};
     let arr = [];
@@ -60,11 +58,9 @@ function App () {
     let urlLocation = window.location.pathname.split('/');
     let id = urlLocation[urlLocation.length - 1];
     //console.log('AppartmentId', id);
-
     setAppartmentID(id);
     //console.log('requst made');
     setBusy({loading: true});
-
     let request = $.ajax ({
       url: '/api/reservation/calendar',
       method: 'GET',
@@ -83,7 +79,6 @@ function App () {
       setCalendarData( disabledDays);
       setPrice(price);
       setBusy({loading: false});
-
     });
     //console.log(guests);
     request.fail(function(jqXHR, textStatus) {
@@ -94,13 +89,10 @@ function App () {
     };
   }, []);
 
-
   /*
     This function will be invoked on end date click
     from Calendar Component
-
   **/
-
   const endDateClick = (startDate, endDate) => {
     console.log('enddate start');
     setReservationDates({startDate: startDate, endDate: endDate});
@@ -143,14 +135,11 @@ function App () {
     return () => {
       setShowFees(true);
     };
-
   };
 
   /***
    * makes reservation ob button click
   */
-
-
   const makeReservation = () => {
     let query = {
       apptId: appartmentID,
@@ -164,7 +153,6 @@ function App () {
         total: fees.total * fees.nights,
       },
       guests: selectedGuests
-
     };
     const result = axios.post('/api/reservation/makeReservation',{
       params: query
@@ -175,18 +163,15 @@ function App () {
   /**
    * updates selected guests everu time guests anount is changed
    */
-
   const guestsUpdate = (adults, children, infants) => {
     let obj = {
       adult: adults,
       children: children,
       infants: infants
-
     };
     //console.log(obj);
     setSelectedGuests(obj);
   };
-
 
   return (
     <div>
@@ -204,7 +189,6 @@ function App () {
                 <div className="rating-em" >
                   <Rating/>
                 </div>
-
               </div>
               <Calendar data = {caldendarData} endDateClick = {endDateClick}/>
               <Guests guests = {guests} guestsUpdate = {guestsUpdate}/>

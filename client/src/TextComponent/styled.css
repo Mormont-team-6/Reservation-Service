@@ -28,6 +28,7 @@
   justify-items: start;
   letter-spacing: 0.7px;
 }
+
 .DescriptionTextLightEM{
   font-family: 'Roboto';
   font-weight: lighter;
@@ -39,6 +40,7 @@
   font-size: 14px;
   letter-spacing: 0.7px;
 }
+
 .ExtraInfoTextLightEM{
   font-family: 'Roboto';
   font-weight: lighter;
@@ -46,6 +48,7 @@
   letter-spacing: 0.7px;
   margin: 10px;
 }
+
 .AmenitiesTextEM {
   font-family: 'Roboto';
   font-weight: lighter;
@@ -65,13 +68,14 @@
   grid-template-rows:auto;
   padding: 10px;
 }
-.AmenitiesGridEM {
 
+.AmenitiesGridEM {
   display: grid;
   grid-template-columns: 30px auto;
   grid-template-rows: 50% auto;
   padding-left: 10px;
 }
+
 .LineEM{
   color: rgba(0, 0, 0, 0.35);
   width:490px;

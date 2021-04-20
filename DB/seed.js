@@ -5,7 +5,6 @@ const dates = require('./data.js');
 let calendarDates = dates.getDates(new Date(), (new Date()).addDays(365));
 
 let populateData = () => {
-
   for (let i = 1; i <= 100; i++) {
     let id = i;
     db.Calendar.find({apartmentId: id}, (err, result) => {
@@ -13,7 +12,6 @@ let populateData = () => {
         console.log('Error in populateData');
         throw (err);
       }
-      console.log('here');
       if (result === undefined || result.length === 0 || ! result) {
         let nGuests = 1 + Math.floor(Math.random() * 10);
         let aptCost = 100 + Math.floor(Math.random() * 50);
@@ -44,7 +42,6 @@ let populateData = () => {
         }
       }
     });
-
   }
 };
 populateData();

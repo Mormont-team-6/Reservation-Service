@@ -9,9 +9,7 @@ const FirtsTitle = (props) => {
       <div className ="FirstTitleLightEm">
         {props.guests} guests · 4 bedrooms · 6 beds · 2 baths
       </div>
-
       <img className ="FirstTitleImgEm" src='https://beartnt-profile-photos.s3.us-east-2.amazonaws.com/beartnt+profile+photos/pexels-photo-3775540.jpeg'/>
-
     </div>
 
   );

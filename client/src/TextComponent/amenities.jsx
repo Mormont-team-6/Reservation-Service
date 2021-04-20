@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import'./styled.css';
-
+import './styled.css';
 
 const Amenities = () => {
   return (
@@ -17,7 +16,6 @@ const Amenities = () => {
           TV
         </div>
       </div>
-
       {/* Essentials */}
       <div className ="AmenitiesGridEM">
         <div className ="SvgStylingEM">
@@ -55,9 +53,7 @@ const Amenities = () => {
         </div>
       </div>
     </div>
-
   );
-
 };
 
 export default Amenities;

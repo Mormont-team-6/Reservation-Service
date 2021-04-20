@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
 const dates = require ('./data.js');
 const mongodbURL = process.env.MONGODB_URL || 'mongodb://localhost:27017/bear';
+
 mongoose.connect(mongodbURL, {})
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
-
-
 
 let ApartmentCalendar = mongoose.Schema ({
   apartmentId: Number,
@@ -22,7 +21,6 @@ let ApartmentCalendar = mongoose.Schema ({
 });
 
 let ReservationTable = mongoose.Schema ({
-
   apptId: Number,
   startDate: Date,
   endDate: Date,
@@ -55,14 +53,10 @@ let getCalendarDataByApartment = (id, callback) => {
 };
 
 let getCostsByAppartment = (id, callback) => {
-  //console.log('here');
   Calendar.find({apartmentId: id}, (err, result) => {
     if (err) {
-      //console.log('here1');
       console.log('Error in Costs Fetching');
-      //throw (err);
     } else {
-      //console.log(result);
       callback (null, result[0]);
     }
   });
@@ -70,13 +64,11 @@ let getCostsByAppartment = (id, callback) => {
 
 let makeReservation = (params, callback) => {
   let SaveReservation = new Reservations (params);
-
   SaveReservation.save ((err, data) => {
     if (err) {
       console.log('error saving reservation Data');
     } else {
       console.log ('reservation data saved');
-      //callback(data);
     }
   });
 
