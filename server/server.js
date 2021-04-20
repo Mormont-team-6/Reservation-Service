@@ -10,16 +10,12 @@ let db = require('../DB/db.js');
 let data = require('../DB/data.js');
 
 app.get('/listing/*', (req, res) => {
-
-
   res.sendFile (path.join(__dirname, '../client/dist/index.html'));
-
 });
 
 app.get('/api/reservation/calendar', (req, res) => {
   //console.log(req.query.appartmentID);
   let appartmentID = req.query.ApartmentId;
-
   db.getCalendarDataByApartment(appartmentID, (err, data) => {
     if (err) {
       res.sendStatus(400);
@@ -37,8 +33,6 @@ app.get('/api/reservation/reservationCost', (req, res) => {
       console.log(appartmentID);
       res.sendStatus(400);
     } else {
-      //console.log('Reservation appartmentID', data);
-      //console.log('Reservation data', data);
       res.status(201).json(data);
     }
   });
@@ -58,8 +52,6 @@ app.post('/api/reservation/makeReservation', (req, res) => {
       res.sendStatus(201);
     }
   });
-
-
 });
 
 let port = process.env.PORT || 3001;
