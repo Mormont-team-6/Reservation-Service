@@ -15,7 +15,6 @@ const CalendarComponent = (props) => {
 
   //received disabled array data from props and dets {disabledDays} to it
   useEffect(() => {
-
     setDisabledDays(props.data.obj);
     //console.log('disdays', disabledDays);
   } );
@@ -54,7 +53,7 @@ const CalendarComponent = (props) => {
   };
 
   /*
-    This function will be invoked everu time start date is changed
+    This function will be invoked every time start date is changed
     Function sets available date range to object
     and this object will be called during calendar rendering
     during rendering day is not in available days range will be
@@ -76,7 +75,6 @@ const CalendarComponent = (props) => {
     props.endDateClick(startDate, endDate);
   }, [endDate]);
 
-
   return (
     <div className="outer-box-em">
       <DatePicker className = "box-border-start-em"
@@ -89,19 +87,19 @@ const CalendarComponent = (props) => {
         monthsShown={2}
         //on on render cliend receives data about booked days and those days
         //are shown on the window as disabled
-        dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date-em' : undefined}
+        dayClassName={date => props.data.obj[date.getTime()] === true ? 'disabled-date-em-b' : undefined}
       />
       <DatePicker className = "box-border-end-em"
         selected={endDate}
         onChange={date=>setEndDate(date)}
         selectsEnd
-        //on on render cliend receives data about booked days and those days
+        //on on render client receives data about booked days and those days
         //are shown on the window as disabled
-        dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date-em' : undefined}
+        dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date-em-b' : undefined}
         //when client selects start day
         //this shows only available and days as active
         dayClassName ={date => disableOnSelect.startDate !== undefined ?
-          date.getTime() < disableOnSelect.startDate || date.getTime() > disableOnSelect.endDate ? 'disabled-date-em' : null : null
+          date.getTime() < disableOnSelect.startDate || date.getTime() > disableOnSelect.endDate ? 'disabled-date-em-b' : null : null
         }
         startDate={startDate}
         endDate={endDate}

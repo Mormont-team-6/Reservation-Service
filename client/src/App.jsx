@@ -37,7 +37,10 @@ function App () {
       let dateSubs = date.substring(0, 10);
       let dateFormated = date.substring(5, 7) + '/' + date.substring(8, 10)
       + '/' + date.substring(0, 4);
+      //console.log(dateFormated);
+
       let time = new Date(dateFormated).getTime();
+      //console.log(dateFormated,"  --  ", time);
       arr.push(time);
       objDisabledDates[time] = true;
     }
@@ -68,13 +71,14 @@ function App () {
     });
     request.done(function(data) {
       let arr = [];
-      //console.log('first data received',data);
+
       let price = 0;
       for (let obj of data) {
         arr.push(obj.CalendarDays.date);
         price = obj.CalendarDays.apartmentCost;
       }
       setGuests(data[0].CalendarDays.totalGuests);
+      //console.log('first data received', arr);
       let disabledDays = disaBleDays(arr);
       setCalendarData( disabledDays);
       setPrice(price);

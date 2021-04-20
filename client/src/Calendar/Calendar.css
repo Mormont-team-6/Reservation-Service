@@ -19,6 +19,7 @@
   padding: 20px;
   width:100%;
 }
+
 .box-border-end-em {
   box-sizing: border-box;
   border-color: rgb(176, 176, 176);
@@ -54,6 +55,7 @@
   padding: 20px;
   width:80%;
 }
+
 #date1-em {
   margin-top: 120;
   margin-left:160px;
@@ -78,7 +80,6 @@
     font-size: 1rem;
     padding: 0.2rem;
     color: rebeccapurple;
-
   }
 
   .react-datepicker__month {
@@ -86,17 +87,12 @@
     text-align: center;
     font-style: normal;
     font-family: 'Roboto';
-
   }
 
   .react-datepicker__week-number.react-datepicker__week-number--clickable:hover {
     border-radius: 0.3rem;
     background-color: white;
   } */
-
-
-
-
 
   .react-datepicker__header {
     text-align: center;
@@ -106,7 +102,6 @@
     border-top-right-radius: 0;
     padding-top: 8px;
     position: relative;
-
   }
 
   .react-datepicker__today-button {
@@ -129,7 +124,8 @@
     position: fixed;
     right: 10px;
   }
-  .disabled-date-em {
+
+  .disabled-date-em-b {
     pointer-events: none;
-    color: rgb(179, 173, 173);
+    color: rgb(170, 162, 162);
   }
